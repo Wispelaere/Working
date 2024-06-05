@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\UsersRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
+#[UniqueEntity(fields: ['email'], message: 'Vous avez deja un compte sur cette adresse Email')]
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -38,7 +40,13 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $Last_Name = null;
 
     #[ORM\Column]
-    private ?bool $IsAdmin = null;
+    private ?bool $IsAdmin = false;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Adress = null;
+
+    #[ORM\Column(length: 20)]
+    private ?string $Phone_Number = null;
 
     public function getId(): ?int
     {
@@ -147,6 +155,30 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAdmin(bool $IsAdmin): static
     {
         $this->IsAdmin = $IsAdmin;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->Adress;
+    }
+
+    public function setAdress(string $Adress): static
+    {
+        $this->Adress = $Adress;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->Phone_Number;
+    }
+
+    public function setPhoneNumber(string $Phone_Number): static
+    {
+        $this->Phone_Number = $Phone_Number;
 
         return $this;
     }
