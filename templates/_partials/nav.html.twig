@@ -9,7 +9,7 @@
 			<ul class="navbar-nav me-auto mb-6 mb-lg" id="titlenavbar">
 
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Accueil</a>
+					<a class="nav-link active" aria-current="page" href="{{path('main')}}">Accueil</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="#">A Propos</a>
@@ -57,7 +57,7 @@
 					</li>
 				{% endif %}
 			</ul>
-			<form class="d-flex" role="search">
+			<form class="d-flex" role="search" id="search">
 				<input class="form-control me-2" type="search" placeholder="Menus, Plat.." aria-label="Search">
 				<button class="btn btn-outline-success" type="submit">Rechercher</button>
 			</form>
