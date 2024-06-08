@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileUserController!
+{% endblock %}
+
+{% block body %}
+	<div class="container d-flex flex-column align-items-center">
+		{% for user in utilisateurs %}
+			<div class="card mb-2">
+				<div class="mt-5 text-center">
+					<h3 class="mb-0">{{user.lastName}}</h3>
+					<h3 class="mb-4">{{ user.firstName }}</h3>
+
+
+					<h6>{{ user.adress }}</h6>
+					
+					<div class="d-flex justify-content-between align-items-center mt-4 px-4">
+						<div class="stats">
+							<h6 class="mb-0">Followers</h6>
+
+						</div>
+						<div class="stats">
+							<h6 class="mb-0">Projects</h6>
+
+						</div>
+						<div class="stats">
+							<h6 class="mb-0">Ranks</h6>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
