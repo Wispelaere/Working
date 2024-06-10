@@ -1,0 +1,23 @@
+{# templates/image/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des images</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image in images %}
+                <tr>
+                    <td><img src="{{ asset(image.path) }}" alt="Image" style="max-width: 150px; max-height: 150px;"></td>
+                    <td>{{ image.namePhoto }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
