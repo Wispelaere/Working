@@ -1,19 +1,26 @@
-
 /* -----NAVBAR-----*/
 
-#logotraiteur{
-    width: 180px;
-    margin-right: 3em;
+#logotraiteur {
+  width: 180px;
+  margin-right: 3em;
 }
 
-#titlenavbar{
-    gap: 1em;
-    font-family: "Licorice", cursive;
+#titlenavbar {
+  gap: 1em;
+  font-family: "Licorice", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 24px;
 }
 
-#search{
-    margin-right: 2em;
+#search {
+  margin-right: 2em;
+}
+
+/* -----PROFIL-----*/
+
+#containerProfil {
+    margin-top: 6em;
+    background-color: rgb(118, 67, 101);
+   height: 200px;
 }
