@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\DeleteImageType;
 
 class ImageController extends AbstractController
 {
@@ -60,5 +61,23 @@ class ImageController extends AbstractController
             'image' => $image,
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('/galerie/{id}/delete', name: 'image_delete', methods: ['POST'])]
+    public function delete(Request $request, Image $image, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$image->getId(), $request->request->get('_token'))) {
+            // Supprimer le fichier du système de fichiers
+            $filePath = $this->getParameter('images_directory') . '/' . basename($image->getPath());
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            // Supprimer l'entité Image de la base de données
+            $entityManager->remove($image);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('image_index');
     }
 }
