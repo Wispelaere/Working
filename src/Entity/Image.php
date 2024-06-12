@@ -18,6 +18,9 @@ class Image
     #[ORM\Column(length: 255)]
     private ?string $Path = null;
 
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    private ?Album $parent = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -43,6 +46,18 @@ class Image
     public function setPath(string $Path): static
     {
         $this->Path = $Path;
+
+        return $this;
+    }
+
+    public function getParent(): ?Album
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?Album $parent): static
+    {
+        $this->parent = $parent;
 
         return $this;
     }

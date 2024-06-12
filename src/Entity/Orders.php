@@ -51,6 +51,9 @@ class Orders
     #[ORM\ManyToMany(targetEntity: Menus::class, inversedBy: 'orders')]
     private Collection $Category2;
 
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    private ?Users $parent = null;
+
     public function __construct()
     {
         $this->Category = new ArrayCollection();
@@ -151,6 +154,18 @@ class Orders
     public function removeCategory2(Menus $category2): static
     {
         $this->Category2->removeElement($category2);
+
+        return $this;
+    }
+
+    public function getParent(): ?Users
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?Users $parent): static
+    {
+        $this->parent = $parent;
 
         return $this;
     }

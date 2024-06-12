@@ -23,6 +23,9 @@ class Announces
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $Date_Sent = null;
 
+    #[ORM\ManyToOne(inversedBy: 'announces')]
+    private ?Users $parent = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Announces
     public function setDateSent(\DateTimeInterface $Date_Sent): static
     {
         $this->Date_Sent = $Date_Sent;
+
+        return $this;
+    }
+
+    public function getParent(): ?Users
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?Users $parent): static
+    {
+        $this->parent = $parent;
 
         return $this;
     }

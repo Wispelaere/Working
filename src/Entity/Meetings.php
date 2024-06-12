@@ -23,6 +23,9 @@ class Meetings
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $Time_Meeting = null;
 
+    #[ORM\ManyToOne(inversedBy: 'meetings')]
+    private ?Users $parent = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Meetings
     public function setTimeMeeting(\DateTimeInterface $Time_Meeting): static
     {
         $this->Time_Meeting = $Time_Meeting;
+
+        return $this;
+    }
+
+    public function getParent(): ?Users
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?Users $parent): static
+    {
+        $this->parent = $parent;
 
         return $this;
     }

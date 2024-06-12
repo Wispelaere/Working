@@ -28,6 +28,9 @@ class Reviews
     #[Assert\NotBlank]
     private ?string $Description_Review = null;
 
+    #[ORM\ManyToOne(inversedBy: 'reviews')]
+    private ?Users $parent = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -65,6 +68,18 @@ class Reviews
     public function setDescriptionReview(string $Description_Review): static
     {
         $this->Description_Review = $Description_Review;
+
+        return $this;
+    }
+
+    public function getParent(): ?Users
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?Users $parent): static
+    {
+        $this->parent = $parent;
 
         return $this;
     }

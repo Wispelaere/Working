@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -47,6 +49,45 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 20)]
     private ?string $Phone_Number = null;
+
+    /**
+     * @var Collection<int, Announces>
+     */
+    #[ORM\OneToMany(targetEntity: Announces::class, mappedBy: 'parent')]
+    private Collection $announces;
+
+    /**
+     * @var Collection<int, Meetings>
+     */
+    #[ORM\OneToMany(targetEntity: Meetings::class, mappedBy: 'parent')]
+    private Collection $meetings;
+
+    /**
+     * @var Collection<int, Album>
+     */
+    #[ORM\OneToMany(targetEntity: Album::class, mappedBy: 'parent')]
+    private Collection $albums;
+
+    /**
+     * @var Collection<int, Reviews>
+     */
+    #[ORM\OneToMany(targetEntity: Reviews::class, mappedBy: 'parent')]
+    private Collection $reviews;
+
+    /**
+     * @var Collection<int, Orders>
+     */
+    #[ORM\OneToMany(targetEntity: Orders::class, mappedBy: 'parent')]
+    private Collection $orders;
+
+    public function __construct()
+    {
+        $this->announces = new ArrayCollection();
+        $this->meetings = new ArrayCollection();
+        $this->albums = new ArrayCollection();
+        $this->reviews = new ArrayCollection();
+        $this->orders = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -179,6 +220,156 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPhoneNumber(string $Phone_Number): static
     {
         $this->Phone_Number = $Phone_Number;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Announces>
+     */
+    public function getAnnounces(): Collection
+    {
+        return $this->announces;
+    }
+
+    public function addAnnounce(Announces $announce): static
+    {
+        if (!$this->announces->contains($announce)) {
+            $this->announces->add($announce);
+            $announce->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnounce(Announces $announce): static
+    {
+        if ($this->announces->removeElement($announce)) {
+            // set the owning side to null (unless already changed)
+            if ($announce->getParent() === $this) {
+                $announce->setParent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Meetings>
+     */
+    public function getMeetings(): Collection
+    {
+        return $this->meetings;
+    }
+
+    public function addMeeting(Meetings $meeting): static
+    {
+        if (!$this->meetings->contains($meeting)) {
+            $this->meetings->add($meeting);
+            $meeting->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeeting(Meetings $meeting): static
+    {
+        if ($this->meetings->removeElement($meeting)) {
+            // set the owning side to null (unless already changed)
+            if ($meeting->getParent() === $this) {
+                $meeting->setParent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Album>
+     */
+    public function getAlbums(): Collection
+    {
+        return $this->albums;
+    }
+
+    public function addAlbum(Album $album): static
+    {
+        if (!$this->albums->contains($album)) {
+            $this->albums->add($album);
+            $album->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAlbum(Album $album): static
+    {
+        if ($this->albums->removeElement($album)) {
+            // set the owning side to null (unless already changed)
+            if ($album->getParent() === $this) {
+                $album->setParent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reviews>
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Reviews $review): static
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews->add($review);
+            $review->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Reviews $review): static
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getParent() === $this) {
+                $review->setParent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Orders>
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Orders $order): static
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders->add($order);
+            $order->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Orders $order): static
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getParent() === $this) {
+                $order->setParent(null);
+            }
+        }
 
         return $this;
     }
