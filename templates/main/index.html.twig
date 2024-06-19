@@ -2,14 +2,28 @@
 
 {% block title %}Accueil{% endblock %}
 
-{% block body %}
-    <div>
-        <img src="{{ asset('image/Image1.JPG') }}" alt="Symfony!" id="logotraiteur"/>
-    </div>
-    <div id="calendar" class="small-calendar"></div>
+{% block stylesheets %}
+
 {% endblock %}
 
-{% block javascripts %}
-
-
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <img src="{{ asset('image/Image1.JPG') }}" alt="Symfony!" id="logotraiteur" class="mt-3 mb-3">
+            </div>
+            <div class="col-md-12 mb-3">
+                <div id="calendar" class="small-calendar mb-3"></div>
+            </div>
+            <div class="col-md-12">
+                <div id="comments" class="comments-container">
+                    {# Inclure les commentaires ici #}
+                    {{ include('comment/_comments.html.twig', { reviews: reviews }) }}
+                </div>
+                <div class="mt-3">
+                    <a href="{{ path('add_comment') }}" class="btn btn-primary">Ajouter un Commentaire</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

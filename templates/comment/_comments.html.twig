@@ -1,0 +1,28 @@
+{# templates/comment/_comments.html.twig #}
+
+<div id="comments-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for review in reviews %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <div class="card" style="width: 18rem; margin: auto;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ review.getTitleReview() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Note: {{ review.getNote() }}</h6>
+                        <p class="card-text">{{ review.getDescriptionReview() }}</p>
+                        <p class="card-text">Par: {{ review.getParent() ? review.getParent().getEmail() : 'Utilisateur inconnu' }}</p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>Aucun commentaire trouvé.</p>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#comments-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#comments-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

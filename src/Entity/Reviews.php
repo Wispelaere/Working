@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ReviewsRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -12,7 +11,7 @@ class Reviews
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
     #[ORM\Column(length: 150)]
@@ -20,11 +19,11 @@ class Reviews
     #[Assert\Length(max: 150)]
     private ?string $Title_Review = null;
 
-    #[ORM\Column(type: Types::BINARY)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     #[Assert\NotNull]
-    private ?string $Note = null;  // Explicitly defining as string
+    private ?int $Note = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: 'text')]
     #[Assert\NotBlank]
     private ?string $Description_Review = null;
 
@@ -48,12 +47,12 @@ class Reviews
         return $this;
     }
 
-    public function getNote(): ?string
+    public function getNote(): ?int
     {
         return $this->Note;
     }
 
-    public function setNote(?string $Note): static
+    public function setNote(?int $Note): static
     {
         $this->Note = $Note;
 

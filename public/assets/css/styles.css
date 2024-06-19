@@ -1,4 +1,4 @@
-/* -----NAVBAR-----*/
+/* ----- NAVBAR -----*/
 
 #logotraiteur {
   width: 180px;
@@ -17,7 +17,7 @@
   margin-right: 2em;
 }
 
-/* -----PROFIL-----*/
+/* ----- PROFIL -----*/
 
 #containerProfil {
     margin-top: 6em;
@@ -25,4 +25,20 @@
    height: 200px;
 }
 
+/* ----- COMMENTS -----*/
 
+
+.comments-container {
+  background-color: #f5f5dc;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+
+
+/* ----- CALENDAR -----*/
+
+#calendar {
+  width: 100%;
+}
