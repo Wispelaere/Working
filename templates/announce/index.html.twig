@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des annonces{% endblock %}
+
+{% block body %}
+<h1>Liste des annonces</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Date d'envoi</th>
+            <th>Parent</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for announce in announces %}
+            <tr>
+                <td>{{ announce.id }}</td>
+                <td>{{ announce.nameAnnounce }}</td>
+                <td>{{ announce.descriptionAnnounce }}</td>
+                <td>{{ announce.dateSent|date('Y-m-d H:i') }}</td>
+                <td>{{ announce.parent ? announce.parent.id : 'N/A' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune annonce trouvée</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('announce_new') }}" class="btn btn-primary">Créer une nouvelle annonce</a>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une nouvelle annonce{% endblock %}
+
+{% block body %}
+<h1>Créer une nouvelle annonce</h1>
+
+{{ form_start(form) }}
+    <div class="mb-3">
+        {{ form_label(form.Name_Announce) }}
+        {{ form_widget(form.Name_Announce) }}
+        {{ form_errors(form.Name_Announce) }}
+    </div>
+    <div class="mb-3">
+        {{ form_label(form.Description_Announce) }}
+        {{ form_widget(form.Description_Announce) }}
+        {{ form_errors(form.Description_Announce) }}
+    </div>
+    <div class="mb-3">
+        {{ form_label(form.Date_Sent) }}
+        {{ form_widget(form.Date_Sent) }}
+        {{ form_errors(form.Date_Sent) }}
+    </div>
+    <div class="mb-3">
+        {{ form_label(form.parent) }}
+        {{ form_widget(form.parent) }}
+        {{ form_errors(form.parent) }}
+    </div>
+    <button class="btn btn-primary">Enregistrer</button>
+{{ form_end(form) }}
+
+<a href="{{ path('announce_index') }}" class="btn btn-secondary">Retour à la liste</a>
+{% endblock %}
