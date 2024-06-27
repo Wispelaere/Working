@@ -17,6 +17,37 @@
   margin-right: 2em;
 }
 
+/* ----- ACCUEIL -----*/
+
+
+#ImageAccueil1{
+  width: 100%;
+  height: 50vh;  /* Utilisation de 50% de la hauteur de la fenêtre */
+  object-fit: cover;  /* Assure que l'image couvre tout l'espace disponible sans déformation */
+  display: block;
+  margin: 0 auto;
+}
+
+.custom-block {
+  display: flex;
+  align-items: center;
+  height: 50vh;  /* Hauteur fixe */
+}
+.custom-image {
+  width: 20%;
+  height: 50vh;  /* Hauteur fixe */
+  object-fit: cover;
+}
+.custom-text {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+
 /* ----- PROFIL -----*/
 
 #containerProfil {

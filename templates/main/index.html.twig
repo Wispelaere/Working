@@ -1,23 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
-
-{% block stylesheets %}
-
+{% block title %}Accueil
 {% endblock %}
 
+{% block stylesheets %}{% endblock %}
+
 {% block body %}
-    <div class="container">
+ <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 mb-3">
-                <img src="{{ asset('image/Image1.JPG') }}" alt="Symfony!" id="logotraiteur" class="mt-3 mb-3">
+            <div class="col-12 mb-3">
+                <img src="{{ asset('image/Image2.JPG') }}" alt="Symfony!" id="ImageAccueil1" class="mt-3 mb-3 full-width">
             </div>
-            <div class="col-md-12 mb-3">
-                <div id="calendar" class="small-calendar mb-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-3 custom-block">
+                <img src="{{ asset('image/KellyPhoto.JPG') }}" alt="Image gauche" class="custom-image">
+                <div class="custom-text">
+                    <p>Je m'appelle Kelly et je suis passionnée par la cuisine. 
+                        Depuis mon local, je prépare des plats délicieux pour vos mariages, anniversaires et autres célébrations.
+                        Chaque plat est fait avec amour et des ingrédients frais, pour garantir des moments gourmands et inoubliables.
+                        J'adore créer des menus personnalisés qui enchantent vos invités et ajoutent une touche spéciale à vos événements.
+                        Avec moi, chaque fête devient un véritable festin !
+                    </p>
+                </div>
             </div>
-            <div class="col-md-12">
-                <div id="comments" class="comments-container">
-                    {# Inclure les commentaires ici #}
+        </div>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <div id="calendar" class="small-calendar mb-3 full-width"></div>
+            </div>
+            <div class="col-12">
+                <div id="comments" class="comments-container full-width">
                     {{ include('comment/_comments.html.twig', { reviews: reviews }) }}
                 </div>
                 <div class="mt-3">
@@ -26,4 +39,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+	{% endblock %}
