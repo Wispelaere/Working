@@ -25,7 +25,7 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/nouveau-avis', name: 'add_comment')]
+    #[Route('/avis/nouveau', name: 'add_comment')]
     public function addComment(Request $request, EntityManagerInterface $entityManager, Security $security): Response
     {
         $review = new Reviews();

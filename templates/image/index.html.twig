@@ -6,14 +6,20 @@
 {% block body %}
     <h1>Galerie d'images</h1>
 
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('image_new') }}" class="btn btn-primary">Ajouter une nouvelle image</a>
+    {% endif %}
+
     <div class="gallery">
         {% for image in images %}
             <div class="image-item">
                 <img src="{{ asset(image.path) }}" alt="{{ image.namePhoto }}">
-                <form method="post" action="{{ path('image_delete', {'id': image.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette image ?');">
-                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
-                    <button class="btn btn-danger">Supprimer</button>
-                </form>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <form method="post" action="{{ path('image_delete', {'id': image.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette image ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                        <button class="btn btn-danger">Supprimer</button>
+                    </form>
+                {% endif %}
             </div>
         {% endfor %}
     </div>
