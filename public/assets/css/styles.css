@@ -75,6 +75,48 @@
   font-size: 1em;
 }
 
+
+/* ----- CONTACT -----*/
+
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffe6f2; /* Light pink background */
+}
+
+.contact-box {
+  width: 90%; /* Almost full width */
+  max-width: 1200px; /* Maximum width */
+  text-align: center;
+  padding: 20px;
+  border: 10px solid transparent;
+  background-color: #ffffff; /* White background for the box */
+  color: #ff66b2; /* Dark pink text */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  margin-bottom: 20px;
+}
+
+.contact-box h2, .contact-box h4, .contact-box h5 {
+  margin: 10px 0;
+}
+
+.food-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.food-icons img {
+  margin: 10px;
+  width: 50px; /* Adjust the size as needed */
+  height: 50px;
+}
+
 /* ----- PROFIL -----*/
 
 #containerProfil {
