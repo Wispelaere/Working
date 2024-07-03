@@ -1,6 +1,6 @@
 /* ----- NAVBAR -----*/
 
-#logotraiteur {
+#logo {
   width: 180px;
   margin-right: 3em;
 }
@@ -19,25 +19,31 @@
 
 /* ----- ACCUEIL -----*/
 
-
-#ImageAccueil1{
+#ImageAccueil1, #ImageAccueil2, #ImageAccueil3 {
   width: 100%;
-  height: 50vh;  /* Utilisation de 50% de la hauteur de la fenêtre */
+  height: 60vh;  /* Utilisation de 60% de la hauteur de la fenêtre */
   object-fit: cover;  /* Assure que l'image couvre tout l'espace disponible sans déformation */
   display: block;
   margin: 0 auto;
 }
 
-.custom-block {
+.custom-block, .custom-block3, .custom-block2 {
   display: flex;
   align-items: center;
-  height: 50vh;  /* Hauteur fixe */
+  height: 60vh;  /* Hauteur fixe */
+  justify-content: space-around;
 }
+
+.custom-block2 {
+  flex-direction: row-reverse;
+}
+
 .custom-image {
   width: 20%;
   height: 50vh;  /* Hauteur fixe */
   object-fit: cover;
 }
+
 .custom-text {
   width: 50%;
   display: flex;
@@ -47,17 +53,37 @@
   padding: 20px;
 }
 
+.custom-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.custom-title {
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+
+.custom-subtitle {
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+
+.custom-paragraph {
+  font-size: 1em;
+}
 
 /* ----- PROFIL -----*/
 
 #containerProfil {
-    margin-top: 6em;
-    background-color: rgb(118, 67, 101);
-   height: 200px;
+  margin-top: 6em;
+  background-color: rgb(118, 67, 101);
+  height: 200px;
 }
 
 /* ----- COMMENTS -----*/
-
 
 .comments-container {
   background-color: #f5f5dc;
@@ -65,8 +91,6 @@
   margin-top: 20px;
   border-radius: 10px;
 }
-
-
 
 /* ----- CALENDAR -----*/
 

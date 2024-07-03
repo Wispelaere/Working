@@ -1,0 +1,25 @@
+{# templates/announce/list.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>Existing Announces</h1>
+        <div class="row">
+            {% for announce in announces %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ announce.getNameAnnounce }}</h5>
+                            <p class="card-text">{{ announce.getDescriptionAnnounce }}</p>
+                            <p class="card-text">
+                                <small class="text-muted">{{ announce.getDateSent|date('Y-m-d H:i') }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

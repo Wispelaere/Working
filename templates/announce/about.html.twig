@@ -1,37 +1,44 @@
+{# templates/announce/about.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}À propos{% endblock %}
+{% block title %}À Propos{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1 class="mt-5 mb-4">À savoir</h1>
-
-        {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('announce_new') }}" class="btn btn-primary mb-3">Créer une nouvelle annonce</a>
-        {% endif %}
-
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="container mt-5">
+        <h1>Annonces</h1>
+        <div class="row">
             {% for announce in announces %}
-                <div class="col">
-                    <div class="card h-100">
+                <div class="col-md-4">
+                    <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="card-title">{{ announce.nameAnnounce }}</h5>
-                            <p class="card-text">{{ announce.descriptionAnnounce }}</p>
-                            <p class="card-text"><small class="text-muted">Envoyé le {{ announce.dateSent|date('d/m/Y H:i') }}</small></p>
-                        
+                            <h5 class="card-title">{{ announce.getNameAnnounce }}</h5>
+                            <p class="card-text">{{ announce.getDescriptionAnnounce }}</p>
+                            <p class="card-text">
+                                <small class="text-muted">{{ announce.getDateSent|date('Y-m-d H:i') }}</small>
+                            </p>
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('announce_modify', {'id': announce.id}) }}" class="btn btn-warning">Modifier</a>
-                                <form method="post" action="{{ path('announce_delete', {'id': announce.id}) }}" style="display:inline-block;">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ announce.id) }}">
+                                <a href="{{ path('announce_modify', { id: announce.id }) }}" class="btn btn-warning">Modifier</a>
+                                {{ form_start(delete_forms[announce.id]) }}
                                     <button class="btn btn-danger">Supprimer</button>
-                                </form>
+                                {{ form_end(delete_forms[announce.id]) }}
                             {% endif %}
                         </div>
                     </div>
                 </div>
-            {% else %}
-                <p>Aucune annonce trouvée.</p>
             {% endfor %}
         </div>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <h2>Ajouter une nouvelle annonce</h2>
+            <div class="card mb-4">
+                <div class="card-body">
+                    {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <button class="btn btn-primary">Save</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
+
