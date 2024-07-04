@@ -1,7 +1,112 @@
+/* ----- ACCUEIL -----*/
+
+#ImageAccueil1, #ImageAccueil2, #ImageAccueil3 {
+  width: 100%;
+  height: auto; /* Ajustement automatique de la hauteur pour maintenir les proportions */
+  max-height: 60vh; /* Hauteur maximale pour chaque image */
+  object-fit: cover; /* Assure que l'image couvre tout l'espace disponible sans déformation */
+  display: block;
+  margin: 0 auto;
+}
+
+.custom-block, .custom-block2, .custom-block3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 60vh; /* Hauteur fixe pour chaque bloc */
+  padding: 20px;
+  margin-bottom: 2em; /* Espace en bas de chaque bloc */
+}
+
+.custom-block2 {
+  flex-direction: row-reverse; /* Inverser l'ordre des éléments */
+}
+
+.custom-image {
+  width: 22%; /* Largeur de l'image ajustée */
+  height: auto; /* Hauteur automatique pour garder les proportions */
+  object-fit: cover;
+}
+
+.custom-text-block {
+  width: 50%; /* Largeur du bloc de texte */
+  padding: 0 20px; /* Marge intérieure à gauche et à droite */
+  text-align: justify; /* Justification du texte */
+}
+
+.custom-title {
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+
+.custom-subtitle {
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
+
+.custom-paragraph {
+  font-size: 1em;
+  line-height: 1.6; /* Espacement des lignes pour une meilleure lisibilité */
+}
+
+/* ----- CONTACT -----*/
+
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffe6f2; /* Fond rose clair */
+}
+
+.contact-box {
+  width: 90%; /* Largeur presque pleine */
+  max-width: 1200px; /* Largeur maximale */
+  text-align: center;
+  padding: 20px;
+  border: 10px solid transparent;
+  background-color: #ffffff; /* Fond blanc pour la boîte */
+  color: #ff66b2; /* Texte rose foncé */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour la profondeur */
+  margin-bottom: 20px;
+}
+
+.contact-box h2,
+.contact-box h4,
+.contact-box h5 {
+  margin: 10px 0;
+}
+
+
+/* ----- PROFIL -----*/
+
+#containerProfil {
+  margin-top: 6em;
+  background-color: rgb(118, 67, 101); /* Couleur de fond */
+  height: 200px;
+}
+
+/* ----- COMMENTS -----*/
+
+.comments-container {
+  background-color: #f5f5dc; /* Fond beige clair */
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* ----- CALENDAR -----*/
+
+#calendar {
+  width: 100%; /* Largeur totale */
+}
+
 /* ----- NAVBAR -----*/
 
 #logo {
-  width: 180px;
+  width: 180px; /* Largeur originale du logo */
   margin-right: 3em;
 }
 
@@ -17,125 +122,54 @@
   margin-right: 2em;
 }
 
-/* ----- ACCUEIL -----*/
+/* ----- GALLERY -----*/
 
-#ImageAccueil1, #ImageAccueil2, #ImageAccueil3 {
-  width: 100%;
-  height: 60vh;  /* Utilisation de 60% de la hauteur de la fenêtre */
-  object-fit: cover;  /* Assure que l'image couvre tout l'espace disponible sans déformation */
-  display: block;
-  margin: 0 auto;
-}
 
-.custom-block, .custom-block3, .custom-block2 {
-  display: flex;
-  align-items: center;
-  height: 60vh;  /* Hauteur fixe */
-  justify-content: space-around;
-}
+/* ----- NEW IMAGE -----*/
 
-.custom-block2 {
-  flex-direction: row-reverse;
-}
 
-.custom-image {
-  width: 20%;
-  height: 50vh;  /* Hauteur fixe */
-  object-fit: cover;
-}
-
-.custom-text {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.custom-text-block {
+.form-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   text-align: center;
-}
-
-.custom-title {
-  margin-bottom: 0.5em;
-  font-size: 2em;
-}
-
-.custom-subtitle {
-  margin-bottom: 1em;
-  font-size: 1em;
-}
-
-.custom-paragraph {
-  font-size: 1em;
-}
-
-
-/* ----- CONTACT -----*/
-
-.contact-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #ffe6f2; /* Light pink background */
-}
-
-.contact-box {
-  width: 90%; /* Almost full width */
-  max-width: 1200px; /* Maximum width */
-  text-align: center;
+  padding-top: 10vh;
+  background-color: #f5f5f5;
+  height: 90vh;
+  margin: auto;
   padding: 20px;
-  border: 10px solid transparent;
-  background-color: #ffffff; /* White background for the box */
-  color: #ff66b2; /* Dark pink text */
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  margin-bottom: 20px;
-}
-
-.contact-box h2, .contact-box h4, .contact-box h5 {
-  margin: 10px 0;
-}
-
-.food-icons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.food-icons img {
-  margin: 10px;
-  width: 50px; /* Adjust the size as needed */
-  height: 50px;
-}
-
-/* ----- PROFIL -----*/
-
-#containerProfil {
-  margin-top: 6em;
-  background-color: rgb(118, 67, 101);
-  height: 200px;
-}
-
-/* ----- COMMENTS -----*/
-
-.comments-container {
-  background-color: #f5f5dc;
-  padding: 20px;
-  margin-top: 20px;
   border-radius: 10px;
 }
 
-/* ----- CALENDAR -----*/
+.title-licorice {
+  font-family: 'Licorice', cursive;
+  margin-bottom: 20px;
+  color: #333;
+}
 
-#calendar {
-  width: 100%;
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container .btn {
+  align-self: center;
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.form-container .btn:hover {
+  background-color: #0056b3;
 }
