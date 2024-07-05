@@ -35,19 +35,79 @@
 }
 
 .custom-title {
-  margin-bottom: 0.5em;
-  font-size: 2em;
+  margin-bottom: 0.2em;
+  font-size: 2.5em; 
+   font-family: "Licorice", cursive;
+   text-align: center;
 }
 
 .custom-subtitle {
   margin-bottom: 1em;
-  font-size: 1.2em;
+  font-size: 1em;
+  text-align: center;
 }
 
 .custom-paragraph {
   font-size: 1em;
   line-height: 1.6; /* Espacement des lignes pour une meilleure lisibilité */
 }
+
+/* ----- ANNOUNCES -----*/
+
+
+.announcement-container {
+  background-color: #f8f9fa; /* Couleur de fond pour le conteneur */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title-licorice {
+  font-family: 'Licorice', cursive;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.btn-custom {
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.btn-custom.btn-warning {
+  background-color: #ffc107; /* Jaune */
+  color: #212529; /* Couleur du texte */
+  border: none;
+}
+
+.btn-custom.btn-danger {
+  background-color: #dc3545; /* Rouge */
+  color: #fff; /* Couleur du texte */
+  border: none;
+}
+
+.btn-custom.btn-primary {
+  background-color: #007bff; /* Bleu */
+  color: #fff; /* Couleur du texte */
+  border: none;
+}
+
+#announce_Name_Announce{
+margin: 0.5em;
+}
+
+
 
 /* ----- CONTACT -----*/
 
@@ -115,7 +175,7 @@
   font-family: "Licorice", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 24px;
+  font-size: 29px;
 }
 
 #search {
@@ -124,6 +184,94 @@
 
 /* ----- GALLERY -----*/
 
+.gallery-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 20px; /* Ajustement du positionnement */
+  margin-bottom: 20px; /* Espace en bas */
+}
+
+.title-licorice {
+  font-family: 'Licorice', cursive;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto 20px auto;
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn.btn-danger {
+  background-color: #dc3545; /* Rouge */
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacement entre les images */
+  justify-content: center; /* Centrer les images horizontalement */
+}
+
+.image-item {
+  width: 350px; /* Largeur fixe pour chaque image */
+  height: 350px; /* Hauteur fixe pour chaque image */
+  overflow: hidden; /* Masquer tout contenu dépassant de l'image */
+  position: relative;
+  margin-bottom: 20px; /* Espace en dessous de chaque image */
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assure que l'image couvre tout l'espace de l'élément */
+  display: block;
+  border: 2px solid #000; /* Bordure noire de 2px autour de chaque image */
+  border-radius: 8px; /* Coins arrondis */
+  transition: transform 0.3s ease; /* Effet de transition pour une meilleure expérience utilisateur */
+}
+
+.image-item:hover img {
+  transform: scale(1.1); /* Zoom légèrement l'image au survol */
+}
+
+.image-item form {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.zoomable-image:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .image-item {
+      width: calc(50% - 20px); /* Deux images par ligne sur les écrans moyens */
+  }
+}
+
+@media (max-width: 480px) {
+  .image-item {
+      width: 100%; /* Une image par ligne sur les petits écrans */
+  }
+}
 
 /* ----- NEW IMAGE -----*/
 
