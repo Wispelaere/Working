@@ -144,29 +144,33 @@ margin: 0.5em;
 
 #containerProfil {
   margin-top: 6em;
-  background-color: rgb(118, 67, 101); /* Couleur de fond */
+  background-color: rgb(235, 217, 229); 
   height: 200px;
 }
 
 /* ----- COMMENTS -----*/
 
 .comments-container {
-  background-color: #f5f5dc; /* Fond beige clair */
+  background-color: #efd0e4; 
   padding: 20px;
   margin-top: 20px;
   border-radius: 10px;
 }
 
+.comments-title {
+  font-family: "Licorice", cursive;
+  font-size: 2em;
+}
 /* ----- CALENDAR -----*/
 
 #calendar {
-  width: 100%; /* Largeur totale */
+  width: 100%; 
 }
 
 /* ----- NAVBAR -----*/
 
 #logo {
-  width: 180px; /* Largeur originale du logo */
+  width: 180px;
   margin-right: 3em;
 }
 
@@ -320,4 +324,35 @@ margin: 0.5em;
 
 .form-container .btn:hover {
   background-color: #0056b3;
+}
+
+/* ----- INSCRIPTION ----- */
+
+.inscription-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 2em;
+}
+
+.inscription-container h1 {
+  color: #007bff;
+  font-family: 'Licorice', cursive;
+  text-align: center;
+  font-size: 4em;
+  padding: 1em;
+}
+
+.inscription-container legend {
+  color: #28a745;
+}
+
+.inscription-container fieldset.mb-3 legend {
+  color: #17a2b8;
+}
+
+.btn-submit {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
 }

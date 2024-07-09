@@ -6,7 +6,7 @@
             <div class="carousel-item {% if loop.first %}active{% endif %}">
                 <div class="card" style="width: 18rem; margin: auto;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ review.getTitleReview() }}</h5>
+                        <h5 class="comments-title">{{ review.getTitleReview() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Note: {{ review.getNote() }}</h6>
                         <p class="card-text">{{ review.getDescriptionReview() }}</p>
                         <p class="card-text">Par: {{ review.getParent() ? review.getParent().getEmail() : 'Utilisateur inconnu' }}</p>

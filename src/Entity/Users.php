@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
@@ -11,44 +10,41 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
-#[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
-#[UniqueEntity(fields: ['email'], message: 'Vous avez deja un compte sur cette adresse Email')]
+#[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', columns: ['email'])]
+#[UniqueEntity(fields: ['email'], message: 'Vous avez déjà un compte avec cette adresse email.')]
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    #[ORM\Column(length: 180)]
+    #[ORM\Column(type: 'string', length: 180)]
     private ?string $email = null;
 
-    /**
-     * @var list<string> The user roles
-     */
-    #[ORM\Column]
+    #[ORM\Column(type: 'json')]
     private array $roles = [];
 
-    /**
-     * @var string The hashed password
-     */
-    #[ORM\Column]
+    #[ORM\Column(type: 'string')]
     private ?string $password = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $First_Name = null;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $confirmationToken = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Last_Name = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $firstName = null;
 
-    #[ORM\Column]
-    private ?bool $IsAdmin = false;
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $lastName = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Adress = null;
+    #[ORM\Column(type: 'boolean')]
+    private ?bool $isAdmin = false;
 
-    #[ORM\Column(length: 20)]
-    private ?string $Phone_Number = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $address = null;
+
+    #[ORM\Column(type: 'string', length: 20)]
+    private ?string $phoneNumber = null;
 
     /**
      * @var Collection<int, Announces>
@@ -99,7 +95,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): static
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -119,7 +115,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      *
-     * @return list<string>
+     * @return array<string>
      */
     public function getRoles(): array
     {
@@ -130,10 +126,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
-    /**
-     * @param list<string> $roles
-     */
-    public function setRoles(array $roles): static
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
@@ -148,7 +141,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function setPassword(string $password): static
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
@@ -166,60 +159,60 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getFirstName(): ?string
     {
-        return $this->First_Name;
+        return $this->firstName;
     }
 
-    public function setFirstName(string $First_Name): static
+    public function setFirstName(string $firstName): self
     {
-        $this->First_Name = $First_Name;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
     public function getLastName(): ?string
     {
-        return $this->Last_Name;
+        return $this->lastName;
     }
 
-    public function setLastName(string $Last_Name): static
+    public function setLastName(string $lastName): self
     {
-        $this->Last_Name = $Last_Name;
+        $this->lastName = $lastName;
 
         return $this;
     }
 
     public function isAdmin(): ?bool
     {
-        return $this->IsAdmin;
+        return $this->isAdmin;
     }
 
-    public function setAdmin(bool $IsAdmin): static
+    public function setAdmin(bool $isAdmin): self
     {
-        $this->IsAdmin = $IsAdmin;
+        $this->isAdmin = $isAdmin;
 
         return $this;
     }
 
-    public function getAdress(): ?string
+    public function getAddress(): ?string
     {
-        return $this->Adress;
+        return $this->address;
     }
 
-    public function setAdress(string $Adress): static
+    public function setAddress(string $address): self
     {
-        $this->Adress = $Adress;
+        $this->address = $address;
 
         return $this;
     }
 
     public function getPhoneNumber(): ?string
     {
-        return $this->Phone_Number;
+        return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(string $Phone_Number): static
+    public function setPhoneNumber(string $phoneNumber): self
     {
-        $this->Phone_Number = $Phone_Number;
+        $this->phoneNumber = $phoneNumber;
 
         return $this;
     }
@@ -232,7 +225,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->announces;
     }
 
-    public function addAnnounce(Announces $announce): static
+    public function addAnnounce(Announces $announce): self
     {
         if (!$this->announces->contains($announce)) {
             $this->announces->add($announce);
@@ -242,7 +235,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeAnnounce(Announces $announce): static
+    public function removeAnnounce(Announces $announce): self
     {
         if ($this->announces->removeElement($announce)) {
             // set the owning side to null (unless already changed)
@@ -262,7 +255,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->meetings;
     }
 
-    public function addMeeting(Meetings $meeting): static
+    public function addMeeting(Meetings $meeting): self
     {
         if (!$this->meetings->contains($meeting)) {
             $this->meetings->add($meeting);
@@ -272,7 +265,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeMeeting(Meetings $meeting): static
+    public function removeMeeting(Meetings $meeting): self
     {
         if ($this->meetings->removeElement($meeting)) {
             // set the owning side to null (unless already changed)
@@ -292,7 +285,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->albums;
     }
 
-    public function addAlbum(Album $album): static
+    public function addAlbum(Album $album): self
     {
         if (!$this->albums->contains($album)) {
             $this->albums->add($album);
@@ -302,7 +295,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeAlbum(Album $album): static
+    public function removeAlbum(Album $album): self
     {
         if ($this->albums->removeElement($album)) {
             // set the owning side to null (unless already changed)
@@ -322,7 +315,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->reviews;
     }
 
-    public function addReview(Reviews $review): static
+    public function addReview(Reviews $review): self
     {
         if (!$this->reviews->contains($review)) {
             $this->reviews->add($review);
@@ -332,7 +325,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeReview(Reviews $review): static
+    public function removeReview(Reviews $review): self
     {
         if ($this->reviews->removeElement($review)) {
             // set the owning side to null (unless already changed)
@@ -352,7 +345,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->orders;
     }
 
-    public function addOrder(Orders $order): static
+    public function addOrder(Orders $order): self
     {
         if (!$this->orders->contains($order)) {
             $this->orders->add($order);
@@ -362,7 +355,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeOrder(Orders $order): static
+    public function removeOrder(Orders $order): self
     {
         if ($this->orders->removeElement($order)) {
             // set the owning side to null (unless already changed)
@@ -370,6 +363,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
                 $order->setParent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getConfirmationToken(): ?string
+    {
+        return $this->confirmationToken;
+    }
+
+    public function setConfirmationToken(?string $confirmationToken): self
+    {
+        $this->confirmationToken = $confirmationToken;
 
         return $this;
     }

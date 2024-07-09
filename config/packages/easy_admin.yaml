@@ -1,0 +1,56 @@
+easy_admin:
+    entities:
+        Users:
+            class: App\Entity\Users
+            label: 'Users'
+            list:
+                title: 'Users'
+                fields:
+                    - id
+                    - email
+                    - roles
+                    - First_Name
+                    - Last_Name
+                    - IsAdmin
+                    - Adress
+                    - Phone_Number
+            form:
+                fields:
+                    - email
+                    - roles
+                    - { property: 'password', type: 'password' }
+                    - First_Name
+                    - Last_Name
+                    - IsAdmin
+                    - Adress
+                    - Phone_Number
+            show:
+                fields:
+                    - id
+                    - email
+                    - roles
+                    - First_Name
+                    - Last_Name
+                    - IsAdmin
+                    - Adress
+                    - Phone_Number
+            new:
+                fields:
+                    - email
+                    - roles
+                    - { property: 'password', type: 'password' }
+                    - First_Name
+                    - Last_Name
+                    - IsAdmin
+                    - Adress
+                    - Phone_Number
+            edit:
+                fields:
+                    - email
+                    - roles
+                    - { property: 'password', type: 'password' }
+                    - First_Name
+                    - Last_Name
+                    - IsAdmin
+                    - Adress
+                    - Phone_Number

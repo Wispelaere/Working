@@ -31,7 +31,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['class' => 'form-control col-12'],
                 'label'=> 'Prénom'
             ])
-            ->add('Adress', TextType::class, [
+            ->add('Address', TextType::class, [
                 'attr' => ['class' => 'form-control col-12'],
                 'label'=> 'Adresse complète'
             ])
