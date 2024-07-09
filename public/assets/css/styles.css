@@ -1,44 +1,48 @@
 /* ----- ACCUEIL -----*/
 
-#ImageAccueil1, #ImageAccueil2, #ImageAccueil3 {
+#ImageAccueil1,
+#ImageAccueil2,
+#ImageAccueil3 {
   width: 100%;
-  height: auto; /* Ajustement automatique de la hauteur pour maintenir les proportions */
+  height: auto;
   max-height: 60vh; /* Hauteur maximale pour chaque image */
-  object-fit: cover; /* Assure que l'image couvre tout l'espace disponible sans déformation */
+  object-fit: cover;
   display: block;
   margin: 0 auto;
 }
 
-.custom-block, .custom-block2, .custom-block3 {
+.custom-block,
+.custom-block2,
+.custom-block3 {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 60vh; /* Hauteur fixe pour chaque bloc */
   padding: 20px;
-  margin-bottom: 2em; /* Espace en bas de chaque bloc */
+  margin-bottom: 2em;
 }
 
 .custom-block2 {
-  flex-direction: row-reverse; /* Inverser l'ordre des éléments */
+  flex-direction: row-reverse;
 }
 
 .custom-image {
-  width: 22%; /* Largeur de l'image ajustée */
+  width: 22%;
   height: auto; /* Hauteur automatique pour garder les proportions */
   object-fit: cover;
 }
 
 .custom-text-block {
-  width: 50%; /* Largeur du bloc de texte */
+  width: 40%; /* Largeur du bloc de texte */
   padding: 0 20px; /* Marge intérieure à gauche et à droite */
-  text-align: justify; /* Justification du texte */
+  text-align: justify;
 }
 
 .custom-title {
   margin-bottom: 0.2em;
-  font-size: 2.5em; 
-   font-family: "Licorice", cursive;
-   text-align: center;
+  font-size: 2.5em;
+  font-family: "Licorice", cursive;
+  text-align: center;
 }
 
 .custom-subtitle {
@@ -54,7 +58,6 @@
 
 /* ----- ANNOUNCES -----*/
 
-
 .announcement-container {
   background-color: #f8f9fa; /* Couleur de fond pour le conteneur */
   padding: 20px;
@@ -64,7 +67,7 @@
 }
 
 .title-licorice {
-  font-family: 'Licorice', cursive;
+  font-family: "Licorice", cursive;
   text-align: center;
   margin-bottom: 10px;
   color: #333;
@@ -86,28 +89,26 @@
 }
 
 .btn-custom.btn-warning {
-  background-color: #ffc107; /* Jaune */
-  color: #212529; /* Couleur du texte */
+  background-color: #cbab49d6;
+  color: #212529;
   border: none;
 }
 
 .btn-custom.btn-danger {
-  background-color: #dc3545; /* Rouge */
-  color: #fff; /* Couleur du texte */
+  background-color: #dc3545; 
+  color: #fff;
   border: none;
 }
 
 .btn-custom.btn-primary {
-  background-color: #007bff; /* Bleu */
-  color: #fff; /* Couleur du texte */
+  background-color: #007bff;
+  color: #fff;
   border: none;
 }
 
-#announce_Name_Announce{
-margin: 0.5em;
+#announce_Name_Announce {
+  margin: 0.5em;
 }
-
-
 
 /* ----- CONTACT -----*/
 
@@ -117,41 +118,48 @@ margin: 0.5em;
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #ffe6f2; /* Fond rose clair */
+  background-color: #f49ce8;
 }
 
 .contact-box {
-  width: 90%; /* Largeur presque pleine */
-  max-width: 1200px; /* Largeur maximale */
+  width: 90%;
+  max-width: 1200px;
   text-align: center;
   padding: 20px;
   border: 10px solid transparent;
-  background-color: #ffffff; /* Fond blanc pour la boîte */
-  color: #ff66b2; /* Texte rose foncé */
+  background-color: #895284;
+  color: #f9f9f9; 
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour la profondeur */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
   margin-bottom: 20px;
 }
 
-.contact-box h2,
-.contact-box h4,
+.contact-box h2 {
+  font-family: "Licorice", cursive;
+  font-size: 3em;
+  text-decoration:underline;
+  margin-bottom: 1em;
+}
+.contact-box h4 {
+  font-size: 2em;
+  margin: 0.5em;
+}
 .contact-box h5 {
   margin: 10px 0;
 }
-
 
 /* ----- PROFIL -----*/
 
 #containerProfil {
   margin-top: 6em;
-  background-color: rgb(235, 217, 229); 
+  background-color: rgb(235, 217, 229);
   height: 200px;
 }
 
 /* ----- COMMENTS -----*/
 
 .comments-container {
-  background-color: #efd0e4; 
+  background-color: #efd0e4;
   padding: 20px;
   margin-top: 20px;
   border-radius: 10px;
@@ -164,7 +172,7 @@ margin: 0.5em;
 /* ----- CALENDAR -----*/
 
 #calendar {
-  width: 100%; 
+  width: 100%;
 }
 
 /* ----- NAVBAR -----*/
@@ -199,7 +207,7 @@ margin: 0.5em;
 }
 
 .title-licorice {
-  font-family: 'Licorice', cursive;
+  font-family: "Licorice", cursive;
   text-align: center;
   margin-bottom: 20px;
   color: #333;
@@ -267,18 +275,17 @@ margin: 0.5em;
 
 @media (max-width: 768px) {
   .image-item {
-      width: calc(50% - 20px); /* Deux images par ligne sur les écrans moyens */
+    width: calc(50% - 20px); /* Deux images par ligne sur les écrans moyens */
   }
 }
 
 @media (max-width: 480px) {
   .image-item {
-      width: 100%; /* Une image par ligne sur les petits écrans */
+    width: 100%; /* Une image par ligne sur les petits écrans */
   }
 }
 
 /* ----- NEW IMAGE -----*/
-
 
 .form-container {
   display: flex;
@@ -295,7 +302,7 @@ margin: 0.5em;
 }
 
 .title-licorice {
-  font-family: 'Licorice', cursive;
+  font-family: "Licorice", cursive;
   margin-bottom: 20px;
   color: #333;
 }
@@ -337,7 +344,7 @@ margin: 0.5em;
 
 .inscription-container h1 {
   color: #007bff;
-  font-family: 'Licorice', cursive;
+  font-family: "Licorice", cursive;
   text-align: center;
   font-size: 4em;
   padding: 1em;

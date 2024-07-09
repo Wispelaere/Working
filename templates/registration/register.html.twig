@@ -3,12 +3,8 @@
 {% block title %}S'enregistrer
 {% endblock %}
 
-{% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-{% endblock %}
-
 {% block body %}
-	<section class="container inscription-container">
+	<section class="container">
 		<div class="row">
 			<div class="col m-5">
 				<h1>Inscription</h1>
@@ -17,23 +13,33 @@
 
 				{{ form_start(registrationForm) }}
 				<fieldset class="mb-5">
-					<legend>Mon identité</legend>
-					{{ form_row(registrationForm.Last_Name) }}
-					{{ form_row(registrationForm.First_Name) }}
+					<legend>
+						Mon identité
+
+						{{ form_row(registrationForm.Last_Name) }}
+						{{ form_row(registrationForm.First_Name) }}
+
+
+					</legend>
 				</fieldset>
 				<fieldset class="mb-3">
-					<legend>Mes coordonnées</legend>
-					{{ form_row(registrationForm.Address) }}
-					{{ form_row(registrationForm.email) }}
-					{{ form_row(registrationForm.Phone_Number) }}
+					<legend>
+						Mes coordonnées
+						{{ form_row(registrationForm.Address) }}
+						{{ form_row(registrationForm.email) }}
+						{{form_row(registrationForm.Phone_Number)}}
+					</legend>
 				</fieldset>
 
-				{{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
+				{{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
 				{{ form_row(registrationForm.agreeTerms) }}
 
-				<button type="submit" class="btn btn-success btn-lg my-3 btn-submit">Enregistrer</button>
-				{{ form_end(registrationForm) }}
-			</div>
+				<button type="submit" class="btn btn-success btn-lg my-3">Enregistrer</button>
+				{{ form_end(registrationForm) }}</div>
 		</div>
 	</section>
+
+	{{ form_end(registrationForm) }}
 {% endblock %}
