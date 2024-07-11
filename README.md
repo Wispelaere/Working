@@ -32,7 +32,7 @@ php bin/console doctrine:database:create
 ### 4. Run migration
 To apply migrations and update the database schema:
 ``` bash
-php bin/console doctrine:database:create
+php bin/console doctrine:database:migrate
 ```
 
 ### 5. Start the Development Server
