@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Repas{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 announcement-container">
+        <h1>Repas</h1>
+        <p class="subtitle">Découvrez les plats à la carte</p>
+        <div class="row">
+            {% for meal in meals %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ meal.nameMeal }}</h5>
+                            <p class="card-text">{{ meal.descriptionMeal }}</p>
+                            <p class="card-text"><strong>Prix :</strong> {{ meal.priceMeal }} €</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

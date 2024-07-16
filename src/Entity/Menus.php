@@ -17,7 +17,7 @@ class Menus
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $Name_Menu = null;
+    private ?string $Name_Menu = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Description = null;
@@ -48,12 +48,12 @@ class Menus
         return $this->id;
     }
 
-    public function getNameMenu(): ?int
+    public function getNameMenu(): ?string
     {
         return $this->Name_Menu;
     }
 
-    public function setNameMenu(int $Name_Menu): static
+    public function setNameMenu(string $Name_Menu): static
     {
         $this->Name_Menu = $Name_Menu;
 
