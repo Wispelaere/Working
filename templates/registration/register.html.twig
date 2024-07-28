@@ -1,45 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}S'enregistrer
-{% endblock %}
+{% block title %}S'enregistrer{% endblock %}
+
+{% block stylesheets %}{% endblock %}
 
 {% block body %}
-	<section class="container">
-		<div class="row">
-			<div class="col m-5">
-				<h1>Inscription</h1>
+<section class="registration-container">
+    <div class="registration-wrapper flower-background">
+        <h1 class="registration-title">Inscription</h1>
 
-				{{ form_errors(registrationForm) }}
+        {{ form_errors(registrationForm) }}
 
-				{{ form_start(registrationForm) }}
-				<fieldset class="mb-5">
-					<legend>
-						Mon identité
+        {{ form_start(registrationForm) }}
+        <div class="bordered-section">
+            <fieldset class="mb-5">
+                <legend>Mon identité</legend>
+                <div class="form-field">
+                    {{ form_row(registrationForm.Last_Name) }}
+                </div>
+                <div class="form-field">
+                    {{ form_row(registrationForm.First_Name) }}
+                </div>
+            </fieldset>
+        </div>
+        <div class="bordered-section">
+            <fieldset class="mb-3">
+                <legend>Mes coordonnées</legend>
+                <div class="form-field">
+                    {{ form_row(registrationForm.Address) }}
+                </div>
+                <div class="form-field">
+                    {{ form_row(registrationForm.email) }}
+                </div>
+                <div class="form-field">
+                    {{ form_row(registrationForm.Phone_Number) }}
+                </div>
+            </fieldset>
+        </div>
+        <div class="form-field">
+            {{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
+        </div>
+        <div class="form-field">
+            {{ form_row(registrationForm.agreeTerms) }}
+        </div>
 
-						{{ form_row(registrationForm.Last_Name) }}
-						{{ form_row(registrationForm.First_Name) }}
-
-
-					</legend>
-				</fieldset>
-				<fieldset class="mb-3">
-					<legend>
-						Mes coordonnées
-						{{ form_row(registrationForm.Address) }}
-						{{ form_row(registrationForm.email) }}
-						{{form_row(registrationForm.Phone_Number)}}
-					</legend>
-				</fieldset>
-
-				{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-				{{ form_row(registrationForm.agreeTerms) }}
-
-				<button type="submit" class="btn btn-success btn-lg my-3">Enregistrer</button>
-				{{ form_end(registrationForm) }}</div>
-		</div>
-	</section>
-
-	{{ form_end(registrationForm) }}
+        <button type="submit" class="submit-button btn btn-success btn-lg my-3">Enregistrer</button>
+        {{ form_end(registrationForm) }}
+    </div>
+</section>
 {% endblock %}
